@@ -14,37 +14,31 @@
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:textColor="@color/primary_text"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:background="@color/primary"
-        android:text="Brewery Tracker"
-        android:id="@+id/appNameTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/breweryEditText"
-        android:background="@color/icons"
-
-        android:layout_above="@+id/breweryFindButton"
-        android:layout_alignRight="@+id/breweryFindButton"
-        android:layout_alignEnd="@+id/breweryFindButton"
-        android:layout_alignLeft="@+id/breweryFindButton"
-        android:layout_alignStart="@+id/breweryFindButton" />
+        android:text="Find a Brewery"
+        android:id="@+id/breweriesButton"
+        android:textColor="@color/icons"
+        android:layout_marginTop="150dp"
+        android:background="@color/primary"
+        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to Favorites"
-        android:id="@+id/breweryFindButton"
+        android:text="Find a Beer"
+        android:id="@+id/beerButton"
+        android:background="@color/primary"
+        android:textColor="@color/icons"
+        android:padding="15dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="217dp" />
+        android:layout_alignLeft="@+id/breweriesButton"
+        android:layout_alignStart="@+id/breweriesButton"
+        android:layout_marginBottom="150dp"
+        android:layout_alignRight="@+id/breweriesButton"
+        android:layout_alignEnd="@+id/breweriesButton" />
 
 </RelativeLayout>

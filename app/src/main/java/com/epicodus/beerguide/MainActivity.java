@@ -38,9 +38,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, BreweryLocator.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
+                if(location.equals("")) {
+                    Toast.makeText(MainActivity.this, "Enter a Location", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, BreweryLocator.class);
+                    intent.putExtra("location", location);
+                    startActivity(intent);
+                }
             }
         });
 

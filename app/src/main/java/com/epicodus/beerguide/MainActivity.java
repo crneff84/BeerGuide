@@ -18,14 +18,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.breweryFindButton) Button mBreweryFindButton;
-    @Bind(R.id.breweryEditText) EditText mBreweryEditText;
-    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
-    private ArrayList<String> breweries = new ArrayList<>();
-    @Bind(R.id.favoritesListView) ListView mFavoritesListView;
-
-
-    public static final String TAG = "logs";
+    @Bind(R.id.breweriesButton) Button mBreweriesButton;
+    @Bind(R.id.beerButton) Button mBeerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +28,23 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
-        mAppNameTextView.setTypeface(chunkFiveFont);
+        mBreweriesButton.setTypeface(chunkFiveFont);
+        mBeerButton.setTypeface(chunkFiveFont);
 
-        mBreweryFindButton.setOnClickListener(new View.OnClickListener(){
+        mBeerButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                String breweryInput = mBreweryEditText.getText().toString();
-                if(breweryInput.equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter a Brewery", Toast.LENGTH_LONG).show();
-                } else {
-                    breweries.add(breweryInput);
-
-//                    Intent intent = new Intent(MainActivity.this, FavoritesActivity.class);
-//                    intent.putExtra("breweries", breweries);
-//                    Log.i(TAG, breweries.toString());
-//                    startActivity(intent);
-                }
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BeerActivity.class);
+                startActivity(intent);
             }
         });
 
+        mBreweriesButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BreweriesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

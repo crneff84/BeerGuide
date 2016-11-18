@@ -18,12 +18,17 @@
         <activity android:name=".BreweriesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.MainActivity"></meta-data>
+                android:value="com.epicodus.beerguide.MainActivity" />
         </activity>
         <activity android:name=".BeerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".BreweriesActivity"></meta-data>
+                android:value="com.epicodus.beerguide.MainActivity" />
+        </activity>
+        <activity android:name=".BreweryLocator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.beerguide.MainActivity" />
         </activity>
     </application>
 

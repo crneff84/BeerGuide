@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.breweriesButton) Button mBreweriesButton;
     @Bind(R.id.beerButton) Button mBeerButton;
     @Bind(R.id.findBreweryButton) Button mFindBreweryButton;
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,18 @@ public class MainActivity extends AppCompatActivity {
         mBreweriesButton.setTypeface(chunkFiveFont);
         mBeerButton.setTypeface(chunkFiveFont);
         mFindBreweryButton.setTypeface(chunkFiveFont);
+
+        mFindBreweryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                String location = mLocationEditText.getText().toString();
+                Intent intent = new Intent(MainActivity.this, BreweryLocator.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+            }
+        });
+
+
 
         mBeerButton.setOnClickListener(new View.OnClickListener(){
             @Override

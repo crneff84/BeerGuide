@@ -17,28 +17,42 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find a Brewery"
+        android:text="Favorite Breweries"
         android:id="@+id/breweriesButton"
         android:textColor="@color/icons"
-        android:layout_marginTop="150dp"
         android:background="@color/primary"
         android:padding="15dp"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find a Beer"
+        android:text="Favorite Beers"
         android:id="@+id/beerButton"
         android:background="@color/primary"
         android:textColor="@color/icons"
         android:padding="15dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/breweriesButton"
         android:layout_alignLeft="@+id/breweriesButton"
         android:layout_alignStart="@+id/breweriesButton"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="75dp"
         android:layout_alignRight="@+id/breweriesButton"
         android:layout_alignEnd="@+id/breweriesButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find a Brewery"
+        android:id="@+id/findBreweryButton"
+        android:textColor="@color/icons"
+        android:background="@color/primary"
+        android:padding="15dp"
+        android:layout_above="@+id/breweriesButton"
+        android:layout_alignRight="@+id/breweriesButton"
+        android:layout_alignEnd="@+id/breweriesButton"
+        android:layout_marginBottom="75dp"
+        android:layout_alignLeft="@+id/breweriesButton"
+        android:layout_alignStart="@+id/breweriesButton" />
 
 </RelativeLayout>

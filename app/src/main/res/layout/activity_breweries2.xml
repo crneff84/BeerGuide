@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/breweryEditText"
         android:background="@color/icons"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
         android:layout_marginTop="10dp"
         android:layout_alignLeft="@+id/breweryAddButton"
         android:layout_alignStart="@+id/breweryAddButton"
@@ -23,6 +25,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:textColor="@color/icons"
+        android:padding="15dp"
         android:layout_marginTop="10dp"
         android:text="Add to Favorites"
         android:id="@+id/breweryAddButton"

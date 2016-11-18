@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.breweriesButton) Button mBreweriesButton;
     @Bind(R.id.beerButton) Button mBeerButton;
+    @Bind(R.id.findBreweryButton) Button mFindBreweryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
         mBreweriesButton.setTypeface(chunkFiveFont);
         mBeerButton.setTypeface(chunkFiveFont);
+        mFindBreweryButton.setTypeface(chunkFiveFont);
 
         mBeerButton.setOnClickListener(new View.OnClickListener(){
             @Override

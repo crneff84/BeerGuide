@@ -1,6 +1,7 @@
 package com.epicodus.beerguide;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,10 @@ public class BreweriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breweries2);
         ButterKnife.bind(this);
+
+        Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
+        mBreweryAddButton.setTypeface(chunkFiveFont);
+
 
         mBreweryAddButton.setOnClickListener(new View.OnClickListener(){
             @Override

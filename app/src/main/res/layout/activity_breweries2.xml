@@ -15,25 +15,25 @@
         android:id="@+id/breweryEditText"
         android:background="@color/icons"
         android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/breweryFindButton"
-        android:layout_alignStart="@+id/breweryFindButton"
-        android:layout_alignRight="@+id/breweryFindButton"
-        android:layout_alignEnd="@+id/breweryFindButton" />
+        android:layout_alignLeft="@+id/breweryAddButton"
+        android:layout_alignStart="@+id/breweryAddButton"
+        android:layout_alignRight="@+id/breweryAddButton"
+        android:layout_alignEnd="@+id/breweryAddButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Add to Favorites"
-        android:id="@+id/breweryFindButton"
+        android:id="@+id/breweryAddButton"
         android:layout_below="@+id/breweryEditText"
         android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/breweryFindButton"
-        android:id="@+id/favoritesListView"
+        android:layout_below="@id/breweryAddButton"
+        android:id="@+id/breweriesListView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -41,7 +41,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/beerAddButton"
+        android:layout_marginTop="10dp"
         android:id="@+id/beerListView"
+        android:background="@color/icons"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

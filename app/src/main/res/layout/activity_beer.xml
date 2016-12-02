@@ -20,10 +20,10 @@
         android:singleLine="true"
         android:imeOptions="actionNext"
         android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/beerAddButton"
-        android:layout_alignStart="@+id/beerAddButton"
-        android:layout_alignRight="@+id/beerAddButton"
-        android:layout_alignEnd="@+id/beerAddButton" />
+        android:layout_alignLeft="@+id/beerFindButton"
+        android:layout_alignStart="@+id/beerFindButton"
+        android:layout_alignRight="@+id/beerFindButton"
+        android:layout_alignEnd="@+id/beerFindButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,15 +32,15 @@
         android:textColor="@color/icons"
         android:padding="15dp"
         android:layout_marginTop="10dp"
-        android:text="Add to Favorites"
-        android:id="@+id/beerAddButton"
+        android:text="Search Beers"
+        android:id="@+id/beerFindButton"
         android:layout_below="@+id/beerEditText"
         android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/beerAddButton"
+        android:layout_below="@id/beerFindButton"
         android:layout_marginTop="10dp"
         android:id="@+id/beerListView"
         android:background="@color/icons"

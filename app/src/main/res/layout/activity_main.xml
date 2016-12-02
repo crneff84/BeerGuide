@@ -22,6 +22,7 @@
         android:layout_marginBottom="15dp"
         android:singleLine="true"
         android:imeOptions="actionGo"
+        android:hint="Enter Your Zip Code"
         android:layout_above="@+id/findBreweryButton"
         android:layout_alignRight="@+id/findBreweryButton"
         android:layout_alignEnd="@+id/findBreweryButton"

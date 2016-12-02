@@ -22,10 +22,10 @@
         android:singleLine="true"
         android:imeOptions="actionNext"
         android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/breweryAddButton"
-        android:layout_alignStart="@+id/breweryAddButton"
-        android:layout_alignRight="@+id/breweryAddButton"
-        android:layout_alignEnd="@+id/breweryAddButton" />
+        android:layout_alignLeft="@+id/breweryFindButton"
+        android:layout_alignStart="@+id/breweryFindButton"
+        android:layout_alignRight="@+id/breweryFindButton"
+        android:layout_alignEnd="@+id/breweryFindButton" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,8 +34,8 @@
         android:textColor="@color/icons"
         android:padding="15dp"
         android:layout_marginTop="10dp"
-        android:text="Add to Favorites"
-        android:id="@+id/breweryAddButton"
+        android:text="Search Breweries"
+        android:id="@+id/breweryFindButton"
         android:layout_below="@+id/breweryEditText"
         android:layout_centerHorizontal="true" />
 
@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/breweryAddButton"
+        android:layout_below="@id/breweryFindButton"
         android:id="@+id/breweriesListView"
         android:background="@color/icons"
         android:layout_alignParentLeft="true"

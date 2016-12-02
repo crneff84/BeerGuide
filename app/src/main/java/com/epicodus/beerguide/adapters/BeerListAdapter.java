@@ -47,9 +47,9 @@ public class BeerListAdapter extends RecyclerView.Adapter<BeerListAdapter.BeerVi
     }
 
     public class BeerViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.beerImageView) ImageView mBeerImageView;
+        //@Bind(R.id.beerImageView) ImageView mBeerImageView;
         @Bind(R.id.beerNameTextView) TextView mBeerNameTextView;
-        @Bind(R.id.beerDescriptionTextView) TextView mBeerDescriptionTextView;
+        @Bind(R.id.beerStyleTextView) TextView mBeerStyleTextView;
         @Bind(R.id.beerAbvTextView) TextView mBeerAbvTextView;
 
         private Context mContext;
@@ -62,8 +62,6 @@ public class BeerListAdapter extends RecyclerView.Adapter<BeerListAdapter.BeerVi
 
         public void bindBeer (Beer beer) {
             mBeerNameTextView.setText(beer.getName());
-            mBeerDescriptionTextView.setText(beer.getDescription());
-            mBeerAbvTextView.setText(beer.getAbv());
         }
     }
 }

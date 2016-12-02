@@ -5,24 +5,13 @@ package com.epicodus.beerguide;
  */
 public class Beer {
     private String mName;
-    private String mDescription;
-    private String mAbv;
 
-    public Beer(String name, String description, String abv) {
+    public Beer(String name) {
         this.mName = name;
-        this.mDescription = description;
-        this.mAbv = abv;
     }
 
     public String getName() {
         return mName;
     }
 
-    public String getDescription() {
-        return mDescription;
-    }
-
-    public String getAbv() {
-        return mAbv;
-    }
 }

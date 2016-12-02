@@ -24,6 +24,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class BeerActivity extends AppCompatActivity implements View.OnClickListener {
+
     @Bind(R.id.beerFindButton) Button mBeerFindButton;
     @Bind(R.id.beerEditText) EditText mBeerEditText;
     @Bind(R.id.beerRecyclerView) RecyclerView mBeerRecyclerView;

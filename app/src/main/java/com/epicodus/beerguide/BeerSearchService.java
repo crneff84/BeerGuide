@@ -1,5 +1,7 @@
 package com.epicodus.beerguide;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +21,11 @@ import okhttp3.Response;
  * Created by Guest on 12/2/16.
  */
 public class BeerSearchService {
+    public static final String TAG = BeerSearchService.class.getSimpleName();
+
+
     public static void findBeers(String name, Callback callback) {
+
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
@@ -39,6 +45,7 @@ public class BeerSearchService {
     public ArrayList<Beer> processResults(Response response){
         ArrayList<Beer> beers = new ArrayList<>();
 
+
         try {
             String jsonData = response.body().string();
 
@@ -49,10 +56,8 @@ public class BeerSearchService {
                     JSONObject beerJSON = beersJSON.getJSONObject(i);
 
                     String name = beerJSON.getString("name");
-                    String description = beerJSON.getString("description");
-                    String abv = beerJSON.getString("abv");
 
-                    Beer beer = new Beer(name, description, abv);
+                    Beer beer = new Beer(name);
                     beers.add(beer);
                 }
             }

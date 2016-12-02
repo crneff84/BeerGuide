@@ -24,7 +24,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class BeerActivity extends AppCompatActivity implements View.OnClickListener {
+public class BeersActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Bind(R.id.beerFindButton) Button mBeerFindButton;
     @Bind(R.id.beerEditText) EditText mBeerEditText;
@@ -52,7 +52,7 @@ public class BeerActivity extends AppCompatActivity implements View.OnClickListe
         if(v == mBeerFindButton) {
             String beerInput = mBeerEditText.getText().toString();
             if(beerInput.equals("")) {
-                Toast.makeText(BeerActivity.this, "Enter a Beer", Toast.LENGTH_LONG).show();
+                Toast.makeText(BeersActivity.this, "Enter a Beer", Toast.LENGTH_LONG).show();
             } else {
                 final BeerSearchService beerSearchService = new BeerSearchService();
 
@@ -66,13 +66,13 @@ public class BeerActivity extends AppCompatActivity implements View.OnClickListe
                     public void onResponse(Call call, Response response) {
                         mBeers = beerSearchService.processResults(response);
 
-                        BeerActivity.this.runOnUiThread(new Runnable() {
+                        BeersActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 mAdapter = new BeerListAdapter(getApplicationContext(), mBeers);
                                 mBeerRecyclerView.setAdapter(mAdapter);
                                 RecyclerView.LayoutManager layoutManager =
-                                        new LinearLayoutManager(BeerActivity.this);
+                                        new LinearLayoutManager(BeersActivity.this);
                                 mBeerRecyclerView.setLayoutManager(layoutManager);
                                 mBeerRecyclerView.setHasFixedSize(true);
                             }

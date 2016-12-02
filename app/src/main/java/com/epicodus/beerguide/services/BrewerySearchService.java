@@ -1,5 +1,7 @@
 package com.epicodus.beerguide.services;
 
+import android.util.Log;
+
 import com.epicodus.beerguide.Constants;
 import com.epicodus.beerguide.models.Brewery;
 
@@ -21,6 +23,7 @@ import okhttp3.Response;
  * Created by Guest on 12/2/16.
  */
 public class BrewerySearchService {
+    public static final String TAG = BrewerySearchService.class.getSimpleName();
 
     public static void findBreweries(String name, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
@@ -52,8 +55,11 @@ public class BrewerySearchService {
                     JSONObject breweryJSON = breweriesJSON.getJSONObject(i);
 
                     String name = breweryJSON.getString("name");
+                    String id = breweryJSON.getString("id");
 
-                    Brewery brewery = new Brewery(name);
+                    Log.i(TAG, id);
+
+                    Brewery brewery = new Brewery(name, id);
                     breweries.add(brewery);
                 }
             }

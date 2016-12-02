@@ -5,13 +5,19 @@ package com.epicodus.beerguide.models;
  */
 public class Beer {
     private String mName;
+    private String mId;
 
-    public Beer(String name) {
+    public Beer(String name, String id) {
         this.mName = name;
+        this.mId = id;
     }
 
     public String getName() {
         return mName;
+    }
+
+    public String getId() {
+        return mId;
     }
 
 }

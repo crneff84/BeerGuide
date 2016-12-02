@@ -58,8 +58,9 @@ public class BeerSearchService {
                     JSONObject beerJSON = beersJSON.getJSONObject(i);
 
                     String name = beerJSON.getString("name");
+                    String id = beerJSON.getString("id");
 
-                    Beer beer = new Beer(name);
+                    Beer beer = new Beer(name, id);
                     beers.add(beer);
                 }
             }

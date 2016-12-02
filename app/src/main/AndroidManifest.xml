@@ -22,7 +22,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.BeerActivity">
+        <activity android:name=".ui.BeersActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.beerguide.ui.MainActivity" />

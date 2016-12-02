@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BeerActivity extends AppCompatActivity {
+public class BeerActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.beerAddButton) Button mBeerAddButton;
     @Bind(R.id.beerEditText) EditText mBeerEditText;
     @Bind(R.id.beerListView) ListView mBeerListView;
@@ -30,20 +30,19 @@ public class BeerActivity extends AppCompatActivity {
         Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
         mBeerAddButton.setTypeface(chunkFiveFont);
 
-        mBeerAddButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String beerInput = mBeerEditText.getText().toString();
-                if(beerInput.equals("")) {
-                    Toast.makeText(BeerActivity.this, "Enter a Beer", Toast.LENGTH_LONG).show();
-                } else {
-                    beers.add(beerInput);
-                    ArrayAdapter adapter = new ArrayAdapter(BeerActivity.this, android.R.layout.simple_list_item_1, beers);
-                    mBeerListView.setAdapter(adapter);
-                }
-            }
-        });
+        mBeerAddButton.setOnClickListener(this);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        String beerInput = mBeerEditText.getText().toString();
+        if(beerInput.equals("")) {
+            Toast.makeText(BeerActivity.this, "Enter a Beer", Toast.LENGTH_LONG).show();
+        } else {
+            beers.add(beerInput);
+            ArrayAdapter adapter = new ArrayAdapter(BeerActivity.this, android.R.layout.simple_list_item_1, beers);
+            mBeerListView.setAdapter(adapter);
+        }
+    }
 }

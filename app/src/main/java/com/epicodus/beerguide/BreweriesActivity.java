@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BreweriesActivity extends AppCompatActivity {
+public class BreweriesActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.breweryAddButton) Button mBreweryAddButton;
     @Bind(R.id.breweryEditText) EditText mBreweryEditText;
     @Bind(R.id.breweriesListView) ListView mBreweriesListView;
@@ -33,22 +33,19 @@ public class BreweriesActivity extends AppCompatActivity {
         Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
         mBreweryAddButton.setTypeface(chunkFiveFont);
 
-
-        mBreweryAddButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String breweryInput = mBreweryEditText.getText().toString();
-                if(breweryInput.equals("")) {
-                    Toast.makeText(BreweriesActivity.this, "Enter a Brewery", Toast.LENGTH_LONG).show();
-                } else {
-                    breweries.add(breweryInput);
-                    ArrayAdapter adapter = new ArrayAdapter(BreweriesActivity.this, android.R.layout.simple_list_item_1, breweries);
-                    mBreweriesListView.setAdapter(adapter);
-                }
-            }
-        });
+        mBreweryAddButton.setOnClickListener(this);
+    }
 
 
-
+    @Override
+    public void onClick(View v) {
+        String breweryInput = mBreweryEditText.getText().toString();
+        if(breweryInput.equals("")) {
+            Toast.makeText(BreweriesActivity.this, "Enter a Brewery", Toast.LENGTH_LONG).show();
+        } else {
+            breweries.add(breweryInput);
+            ArrayAdapter adapter = new ArrayAdapter(BreweriesActivity.this, android.R.layout.simple_list_item_1, breweries);
+            mBreweriesListView.setAdapter(adapter);
+        }
     }
 }

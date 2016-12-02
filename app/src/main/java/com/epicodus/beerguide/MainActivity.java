@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.breweriesButton) Button mBreweriesButton;
     @Bind(R.id.beerButton) Button mBeerButton;
     @Bind(R.id.findBreweryButton) Button mFindBreweryButton;
@@ -34,36 +34,32 @@ public class MainActivity extends AppCompatActivity {
         mBeerButton.setTypeface(chunkFiveFont);
         mFindBreweryButton.setTypeface(chunkFiveFont);
 
-        mFindBreweryButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                String location = mLocationEditText.getText().toString();
-                if(location.equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter a Location", Toast.LENGTH_LONG).show();
-                } else {
-                    Intent intent = new Intent(MainActivity.this, BreweryLocator.class);
-                    intent.putExtra("location", location);
-                    startActivity(intent);
-                }
-            }
-        });
+        mBreweriesButton.setOnClickListener(this);
+        mBeerButton.setOnClickListener(this);
+        mFindBreweryButton.setOnClickListener(this);
+    }
 
-
-
-        mBeerButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, BeerActivity.class);
+    @Override
+    public void onClick(View v) {
+        String location = mLocationEditText.getText().toString();
+        if(v == mFindBreweryButton) {
+            if (location.equals("")) {
+                Toast.makeText(MainActivity.this, "Enter a Location", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(MainActivity.this, BreweryLocator.class);
+                intent.putExtra("location", location);
                 startActivity(intent);
             }
-        });
+        }
 
-        mBreweriesButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, BreweriesActivity.class);
-                startActivity(intent);
-            }
-        });
+        if(v == mBreweriesButton) {
+            Intent intent = new Intent(MainActivity.this, BreweriesActivity.class);
+            startActivity(intent);
+        }
+
+        if(v == mBeerButton) {
+            Intent intent = new Intent(MainActivity.this, BeerActivity.class);
+            startActivity(intent);
+        }
     }
 }

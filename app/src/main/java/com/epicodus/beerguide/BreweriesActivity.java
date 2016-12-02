@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,17 +14,25 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.epicodus.beerguide.adapters.BreweryListAdapter;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class BreweriesActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.breweryFindButton) Button mBreweryFindButton;
     @Bind(R.id.breweryEditText) EditText mBreweryEditText;
-    @Bind(R.id.breweriesListView) ListView mBreweriesListView;
-    private ArrayList<String> breweries = new ArrayList<>();
-    public static final String TAG = "logs";
+    @Bind(R.id.breweriesRecyclerView) RecyclerView mBreweriesRecyclerView;
+
+    private BreweryListAdapter mAdapter;
+
+    private ArrayList<Brewery> mBreweries = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +54,31 @@ public class BreweriesActivity extends AppCompatActivity implements View.OnClick
             if(breweryInput.equals("")) {
                 Toast.makeText(BreweriesActivity.this, "Enter a Brewery", Toast.LENGTH_LONG).show();
             } else {
-                breweries.add(breweryInput);
-                ArrayAdapter adapter = new ArrayAdapter(BreweriesActivity.this, android.R.layout.simple_list_item_1, breweries);
-                mBreweriesListView.setAdapter(adapter);
+                final BrewerySearchService brewerySearchService = new BrewerySearchService();
+
+                brewerySearchService.findBreweries(breweryInput, new Callback() {
+                   @Override
+                    public void onFailure(Call call, IOException e) {
+                       e.printStackTrace();
+                   }
+
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        mBreweries = brewerySearchService.processResults(response);
+
+                        BreweriesActivity.this.runOnUiThread(new Runnable(){
+                            @Override
+                            public void run() {
+                                mAdapter = new BreweryListAdapter(getApplicationContext(), mBreweries);
+                                mBreweriesRecyclerView.setAdapter(mAdapter);
+                                RecyclerView.LayoutManager layoutManager =
+                                        new LinearLayoutManager(BreweriesActivity.this);
+                                mBreweriesRecyclerView.setLayoutManager(layoutManager);
+                                mBreweriesRecyclerView.setHasFixedSize(true);
+                            }
+                        });
+                    }
+                });
             }
         }
     }

@@ -45,7 +45,6 @@ public class BeerSearchService {
     public ArrayList<Beer> processResults(Response response){
         ArrayList<Beer> beers = new ArrayList<>();
 
-
         try {
             String jsonData = response.body().string();
 

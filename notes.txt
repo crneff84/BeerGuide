@@ -1,0 +1,11 @@
+Example Lat/Long API Call for finding Breweries:
+
+http://api.brewerydb.com/v2/search/geo/point?key=[API KEY HERE!]&lat=35.772096&lng=-78.638614
+
+Example Brewery Query:
+
+http://api.brewerydb.com/v2/search?key=[API KEY HERE!]&q=Dogfish&type=brewery
+
+Example Beer Query:
+
+http://api.brewerydb.com/v2/search?key=[API KEY HERE!]&q=IPA&type=beer

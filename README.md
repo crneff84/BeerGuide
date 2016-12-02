@@ -1,6 +1,6 @@
 # BeerGuide
 
-This program allows users to enter a location and find breweries near that location. It also allows users to add their favorite beers and breweries to a list. The favorite items will be clickable and return relevant information on that brewery/beer via an API request from BreweryDB.
+This program allows users to enter a location and find breweries near that location. It also allows users to search for beers and breweries. The searched items will eventually be clickable and return relevant information on that brewery/beer via an API request from BreweryDB.
 
 ## Specifications
 
@@ -16,7 +16,7 @@ This program allows users to enter a location and find breweries near that locat
 
 ## Known Bugs
 
-The app is currently not integrated with a database. It also does not currently support API requests. These features are forthcoming.
+The app is currently not integrated with a database. The "locate breweries" button currently only places a marker on the map based on the user's input. Eventually, the program will populate the map with nearby breweries using an API call.
 
 ## Prerequisites
 

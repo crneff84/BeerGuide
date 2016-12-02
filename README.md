@@ -18,6 +18,8 @@ This program allows users to enter a location and find breweries near that locat
 
 The app is currently not integrated with a database. The "locate breweries" button currently only places a marker on the map based on the user's input. Eventually, the program will populate the map with nearby breweries using an API call.
 
+The Beer list also only has placeholder tags for attributes other than "name". This will be resolved once I figure out a JSON parsing issue.
+
 ## Prerequisites
 
 This app requires Android 4.0.3 or higher.

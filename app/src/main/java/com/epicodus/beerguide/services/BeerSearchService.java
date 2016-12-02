@@ -1,6 +1,9 @@
-package com.epicodus.beerguide;
+package com.epicodus.beerguide.services;
 
 import android.util.Log;
+
+import com.epicodus.beerguide.Constants;
+import com.epicodus.beerguide.models.Beer;
 
 import org.json.JSONArray;
 import org.json.JSONException;

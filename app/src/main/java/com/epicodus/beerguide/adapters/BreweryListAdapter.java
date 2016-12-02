@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.epicodus.beerguide.Brewery;
+import com.epicodus.beerguide.models.Brewery;
 import com.epicodus.beerguide.R;
 
 import java.util.ArrayList;

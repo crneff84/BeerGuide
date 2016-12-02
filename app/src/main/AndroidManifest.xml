@@ -10,27 +10,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BreweriesActivity">
+        <activity android:name=".ui.BreweriesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.MainActivity" />
+                android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
-        <activity android:name=".BeerActivity">
+        <activity android:name=".ui.BeerActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.MainActivity" />
+                android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
-        <activity android:name=".BreweryLocator">
+        <activity android:name=".ui.BreweryLocatorActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.MainActivity" />
+                android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
     </application>
 

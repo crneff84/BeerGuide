@@ -1,12 +1,12 @@
-package com.epicodus.beerguide;
+package com.epicodus.beerguide.models;
 
 /**
  * Created by Guest on 12/2/16.
  */
-public class Beer {
+public class Brewery {
     private String mName;
 
-    public Beer(String name) {
+    public Brewery(String name) {
         this.mName = name;
     }
 
@@ -15,3 +15,4 @@ public class Beer {
     }
 
 }
+

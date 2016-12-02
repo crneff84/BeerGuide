@@ -1,4 +1,4 @@
-package com.epicodus.beerguide;
+package com.epicodus.beerguide.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.epicodus.beerguide.R;
+
 import org.w3c.dom.Text;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BreweryLocator extends AppCompatActivity {
+public class BreweryLocatorActivity extends AppCompatActivity {
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.brewerySearchListView) ListView mBrewerySearchListView;
 

@@ -1,4 +1,4 @@
-package com.epicodus.beerguide;
+package com.epicodus.beerguide.ui;
 
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.epicodus.beerguide.R;
 import com.epicodus.beerguide.adapters.BeerListAdapter;
+import com.epicodus.beerguide.models.Beer;
+import com.epicodus.beerguide.services.BeerSearchService;
 
 import java.io.IOException;
 import java.util.ArrayList;

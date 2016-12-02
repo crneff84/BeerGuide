@@ -1,4 +1,7 @@
-package com.epicodus.beerguide;
+package com.epicodus.beerguide.services;
+
+import com.epicodus.beerguide.Constants;
+import com.epicodus.beerguide.models.Brewery;
 
 import org.json.JSONArray;
 import org.json.JSONException;

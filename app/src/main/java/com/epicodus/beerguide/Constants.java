@@ -8,4 +8,5 @@ public class Constants {
     public static final String BEER_SEARCH_BASE_URL = "http://api.brewerydb.com/v2/search?&type=beer";
     public static final String BREWERY_SEARCH_BASE_URL = "http://api.brewerydb.com/v2/search?&type=brewery";
     public static final String SEARCH_QUERY = "q";
+    public static final String  PREFERENCES_LOCATION_KEY = "location";
 }

@@ -1,11 +1,17 @@
 package com.epicodus.beerguide.models;
 
+import org.parceler.Parcel;
+
 /**
  * Created by Guest on 12/2/16.
  */
+
+@Parcel
 public class Brewery {
-    private String mName;
-    private String mId;
+    String mName;
+    String mId;
+
+    public Brewery() {}
 
     public Brewery(String name, String id) {
         this.mName = name;

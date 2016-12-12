@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context="com.epicodus.beerguide.BreweriesActivity">
+    tools:context=".ui.BreweriesActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -14,35 +13,47 @@
         android:scaleType="centerCrop"/>
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/breweryEditText"
-        android:background="@color/icons"
-        android:singleLine="true"
-        android:imeOptions="actionNext"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@+id/breweryFindButton"
-        android:layout_alignStart="@+id/breweryFindButton"
-        android:layout_alignRight="@+id/breweryFindButton"
-        android:layout_alignEnd="@+id/breweryFindButton" />
+    <!--<EditText-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/breweryEditText"-->
+        <!--android:background="@color/icons"-->
+        <!--android:singleLine="true"-->
+        <!--android:imeOptions="actionNext"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_alignLeft="@+id/breweryFindButton"-->
+        <!--android:layout_alignStart="@+id/breweryFindButton"-->
+        <!--android:layout_alignRight="@+id/breweryFindButton"-->
+        <!--android:layout_alignEnd="@+id/breweryFindButton" />-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/primary"
-        android:textColor="@color/icons"
-        android:padding="15dp"
-        android:layout_marginTop="10dp"
-        android:text="Search Breweries"
-        android:id="@+id/breweryFindButton"
-        android:layout_below="@+id/breweryEditText"
-        android:layout_centerHorizontal="true" />
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/primary"-->
+        <!--android:textColor="@color/icons"-->
+        <!--android:padding="15dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:text="Search Breweries"-->
+        <!--android:id="@+id/breweryFindButton"-->
+        <!--android:layout_above="@+id/savedBreweriesButton"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/breweryFindButton"
-        android:id="@+id/breweriesRecyclerView"/>
+        android:id="@+id/breweriesRecyclerView"
+        android:layout_above="@+id/savedBreweriesButton" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Saved Breweries"
+        android:id="@+id/savedBreweriesButton"
+        android:background="@color/accent"
+        android:textColor="@color/icons"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

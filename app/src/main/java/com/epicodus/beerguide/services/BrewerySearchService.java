@@ -33,6 +33,7 @@ public class BrewerySearchService {
         urlBuilder.addQueryParameter(Constants.SEARCH_QUERY, name);
         urlBuilder.addQueryParameter("key", Constants.BREWERY_DB_KEY);
         String url = urlBuilder.build().toString();
+        Log.v(TAG, url);
 
         Request request = new Request.Builder()
                 .url(url)

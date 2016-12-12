@@ -33,7 +33,8 @@
                 android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.BeerDetailActivity" />
-        <activity android:name=".ui.BreweryDetailActivity"></activity>
+        <activity android:name=".ui.BreweryDetailActivity" />
+        <activity android:name=".ui.SavedBreweryListActivity"></activity>
     </application>
 
 </manifest>

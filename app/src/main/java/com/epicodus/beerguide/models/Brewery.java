@@ -8,22 +8,22 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Brewery {
-    String mName;
-    String mId;
+    String name;
+    String id;
 
     public Brewery() {}
 
     public Brewery(String name, String id) {
-        this.mName = name;
-        this.mId = id;
+        this.name = name;
+        this.id = id;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getId() {
-        return mId;
+        return id;
     }
 
 }

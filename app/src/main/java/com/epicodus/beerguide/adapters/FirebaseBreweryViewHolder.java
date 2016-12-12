@@ -3,6 +3,7 @@ package com.epicodus.beerguide.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,16 +37,15 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
     }
 
     public void bindBrewery(Brewery brewery) {
-        ImageView restaurantImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
-        TextView nameTextView = (TextView) mView.findViewById(R.id.breweryNameTextView);
+        ImageView breweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
+        TextView breweryNameTextView = (TextView) mView.findViewById(R.id.breweryNameTextView);
 
 //        Picasso.with(mContext)
 //                .load(restaurant.getImageUrl())
 //                .resize(MAX_WIDTH, MAX_HEIGHT)
 //                .centerCrop()
 //                .into(restaurantImageView);
-
-        nameTextView.setText(brewery.getName());
+        breweryNameTextView.setText(brewery.getName());
     }
 
     @Override

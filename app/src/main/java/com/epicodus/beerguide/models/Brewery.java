@@ -9,22 +9,30 @@ import org.parceler.Parcel;
 @Parcel
 public class Brewery {
     String name;
-    String id;
+    String breweryId;
+    private String pushId;
 
     public Brewery() {}
 
-    public Brewery(String name, String id) {
+    public Brewery(String name, String breweryId) {
         this.name = name;
-        this.id = id;
+        this.breweryId = breweryId;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getId() {
-        return id;
+    public String getBreweryId() {
+        return breweryId;
     }
 
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }
 

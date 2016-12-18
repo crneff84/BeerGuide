@@ -71,7 +71,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
             int itemPosition = getLayoutPosition();
 
             Intent intent = new Intent(mContext, BreweryDetailActivity.class);
-            intent.putExtra("position", itemPosition);
+            intent.putExtra("position", itemPosition + "");
             intent.putExtra("breweries", Parcels.wrap(mBreweries));
             mContext.startActivity(intent);
         }

@@ -10,6 +10,8 @@ import com.epicodus.beerguide.R;
 import com.epicodus.beerguide.adapters.FirebaseBreweryViewHolder;
 import com.epicodus.beerguide.models.Brewery;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,7 +30,14 @@ public class SavedBreweryListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_breweries2);
         ButterKnife.bind(this);
 
-        mBreweryReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_BREWERIES);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mBreweryReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_BREWERIES)
+                .child(uid);
+
         setUpFirebaseAdapter();
     }
 

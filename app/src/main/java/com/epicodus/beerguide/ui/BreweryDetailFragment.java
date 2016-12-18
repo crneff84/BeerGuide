@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.epicodus.beerguide.Constants;
 import com.epicodus.beerguide.R;
 import com.epicodus.beerguide.models.Brewery;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -67,10 +69,19 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mSaveBreweryButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference breweryRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_BREWERIES);
-            breweryRef.push().setValue(mBrewery);
+                    .getReference(Constants.FIREBASE_CHILD_BREWERIES)
+                    .child(uid);
+
+            DatabaseReference pushRef = breweryRef.push();
+            String pushId = pushRef.getKey();
+            mBrewery.setPushId(pushId);
+            pushRef.setValue(mBrewery);
+
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }
     }

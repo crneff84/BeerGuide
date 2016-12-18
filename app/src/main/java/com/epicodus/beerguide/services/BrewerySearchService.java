@@ -33,7 +33,6 @@ public class BrewerySearchService {
         urlBuilder.addQueryParameter(Constants.SEARCH_QUERY, name);
         urlBuilder.addQueryParameter("key", Constants.BREWERY_DB_KEY);
         String url = urlBuilder.build().toString();
-        Log.v(TAG, url);
 
         Request request = new Request.Builder()
                 .url(url)
@@ -56,11 +55,10 @@ public class BrewerySearchService {
                     JSONObject breweryJSON = breweriesJSON.getJSONObject(i);
 
                     String name = breweryJSON.getString("name");
-                    String id = breweryJSON.getString("id");
+                    String breweryId = breweryJSON.getString("id");
 
-                    Log.i(TAG, id);
 
-                    Brewery brewery = new Brewery(name, id);
+                    Brewery brewery = new Brewery(name, breweryId);
                     breweries.add(brewery);
                 }
             }

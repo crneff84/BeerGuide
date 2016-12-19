@@ -10,18 +10,18 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saved Breweries"
+        android:layout_width="1dp"
+        android:layout_height="308dp"
+        android:text="Saved"
         android:id="@+id/savedBreweriesButton"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="top" />
 
     <fragment
         android:id="@+id/fragmentItemsList"
         android:name="com.epicodus.beerguide.ui.BreweryListFragment"
         android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:layout_weight="3"
+        android:layout_weight="3.53"
         tools:layout="@layout/fragment_brewery_list" />
 
     <View android:background="@color/accent"
@@ -32,6 +32,6 @@
         android:id="@+id/breweryDetailContainer"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="6">
+        android:layout_weight="4.61">
     </FrameLayout>
 </LinearLayout>

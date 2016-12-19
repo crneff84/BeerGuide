@@ -58,14 +58,14 @@ public class BreweriesActivity extends AppCompatActivity implements View.OnClick
         Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
         mSavedBreweriesButton.setTypeface(chunkFiveFont);
 
-//        mBreweryFindButton.setOnClickListener(this);
+//      mBreweryFindButton.setOnClickListener(this);
         mSavedBreweriesButton.setOnClickListener(this);
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mRecentBrewery = mSharedPreferences.getString(Constants.PREFERENCES_BREWERY, null);
+//      mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//      mRecentBrewery = mSharedPreferences.getString(Constants.PREFERENCES_BREWERY, null);
 //
-//        if (mRecentBrewery != null) {
-//            getBreweries(mRecentBrewery);
-//        }
+//      if (mRecentBrewery != null) {
+//          getBreweries(mRecentBrewery);
+//      }
    }
 
     @Override

@@ -38,6 +38,8 @@ public class BrewerySearchService {
                 .url(url)
                 .build();
 
+        Log.d(TAG, url);
+
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
@@ -56,6 +58,7 @@ public class BrewerySearchService {
 
                     String name = breweryJSON.getString("name");
                     String breweryId = breweryJSON.getString("id");
+
 
 
                     Brewery brewery = new Brewery(name, breweryId);

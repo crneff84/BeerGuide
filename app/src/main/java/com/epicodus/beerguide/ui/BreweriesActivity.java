@@ -38,12 +38,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class BreweriesActivity extends AppCompatActivity implements View.OnClickListener {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
-//    private String mRecentBrewery;
-//    @Bind(R.id.breweryFindButton) Button mBreweryFindButton;
-//    @Bind(R.id.breweryEditText) EditText mBreweryEditText;
-//    @Bind(R.id.breweriesRecyclerView) RecyclerView mBreweriesRecyclerView;
     @Bind(R.id.savedBreweriesButton) Button mSavedBreweriesButton;
 
     @Override

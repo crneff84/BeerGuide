@@ -32,8 +32,6 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.breweryImageView) ImageView mImageLabel;
     @Bind(R.id.breweryNameTextView) TextView mNameLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
-    @Bind(R.id.phoneTextView) TextView mPhoneLabel;
-    @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.saveBreweryButton) TextView mSaveBreweryButton;
 
     private Brewery mBrewery;

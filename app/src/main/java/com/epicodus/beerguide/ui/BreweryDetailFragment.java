@@ -20,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -35,11 +37,16 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.saveBreweryButton) TextView mSaveBreweryButton;
 
     private Brewery mBrewery;
+    private ArrayList<Brewery> mBreweries;
+    private int mPosition;
 
-    public static BreweryDetailFragment newInstance(Brewery brewery) {
+    public static BreweryDetailFragment newInstance(ArrayList<Brewery> breweries, Integer position) {
         BreweryDetailFragment breweryDetailFragment = new BreweryDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("brewery", Parcels.wrap(brewery));
+
+        args.putParcelable(Constants.EXTRA_KEY_BREWERIES, Parcels.wrap(breweries));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         breweryDetailFragment.setArguments(args);
         return breweryDetailFragment;
     }
@@ -47,7 +54,9 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBrewery = Parcels.unwrap(getArguments().getParcelable("brewery"));
+        mBreweries = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_BREWERIES));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mBrewery = mBreweries.get(mPosition);
     }
 
     @Override

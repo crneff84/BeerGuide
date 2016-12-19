@@ -23,7 +23,7 @@ public class BreweryPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return BreweryDetailFragment.newInstance(mBreweries.get(position));
+        return BreweryDetailFragment.newInstance(mBreweries, position);
     }
 
     @Override

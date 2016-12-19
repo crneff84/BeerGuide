@@ -2,15 +2,20 @@ package com.epicodus.beerguide.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.epicodus.beerguide.Constants;
 import com.epicodus.beerguide.models.Brewery;
 import com.epicodus.beerguide.R;
 import com.epicodus.beerguide.ui.BreweryDetailActivity;
+import com.epicodus.beerguide.ui.BreweryDetailFragment;
 
 import org.parceler.Parcels;
 
@@ -53,12 +58,19 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         @Bind(R.id.breweryNameTextView) TextView mBreweryNameTextView;
 
         private Context mContext;
+        private int mOrientation;
 
         public BreweryViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
             mContext = itemView.getContext();
+            mOrientation = itemView.getResources().getConfiguration().orientation;
+
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(0);
+            }
+
             itemView.setOnClickListener(this);
         }
 
@@ -66,14 +78,34 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
             mBreweryNameTextView.setText(brewery.getName());
         }
 
+//        @Override
+//        public void onClick(View v) {
+//            int itemPosition = getLayoutPosition();
+//
+//            Intent intent = new Intent(mContext, BreweryDetailActivity.class);
+//            intent.putExtra("position", itemPosition + "");
+//            intent.putExtra("breweries", Parcels.wrap(mBreweries));
+//            mContext.startActivity(intent);
+//        }
+
+        private void createDetailFragment(int position) {
+            BreweryDetailFragment detailFragment = BreweryDetailFragment.newInstance(mBreweries, position);
+            FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.breweryDetailContainer, detailFragment);
+            ft.commit();
+        }
+
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-
-            Intent intent = new Intent(mContext, BreweryDetailActivity.class);
-            intent.putExtra("position", itemPosition + "");
-            intent.putExtra("breweries", Parcels.wrap(mBreweries));
-            mContext.startActivity(intent);
+            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                createDetailFragment(itemPosition);
+            } else {
+                Intent intent = new Intent(mContext, BreweryDetailActivity.class);
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                intent.putExtra(Constants.EXTRA_KEY_BREWERIES, Parcels.wrap(mBreweries));
+                mContext.startActivity(intent);
+            }
         }
     }
 }

@@ -12,4 +12,5 @@ public class Constants {
     public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
     public static final String FIREBASE_CHILD_BREWERIES = "breweries";
     public static final String PREFERENCES_BREWERY = "brewery";
+    public static final String FIREBASE_QUERY_INDEX = "index";
 }

@@ -23,7 +23,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     public ImageView mBreweryImageView;
@@ -35,7 +35,6 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindBrewery(Brewery brewery) {
@@ -51,30 +50,30 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
         breweryNameTextView.setText(brewery.getName());
     }
 
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Brewery> breweries = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_BREWERIES);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    breweries.add(snapshot.getValue(Brewery.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, BreweryDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("breweries", Parcels.wrap(breweries));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+//    @Override
+//    public void onClick(View view) {
+//        final ArrayList<Brewery> breweries = new ArrayList<>();
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_BREWERIES);
+//        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    breweries.add(snapshot.getValue(Brewery.class));
+//                }
+//
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent intent = new Intent(mContext, BreweryDetailActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("breweries", Parcels.wrap(breweries));
+//
+//                mContext.startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//    }
 }

@@ -6,10 +6,22 @@
     tools:context=".ui.BreweriesActivity">
 
     <fragment
-        android:id="@+id/fragmentRestaurantList"
+        android:id="@+id/fragmentBreweryList"
         android:name="com.epicodus.beerguide.ui.BreweryListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_brewery_list" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saved Breweries"
+        android:id="@+id/savedBreweriesButton"
+        android:background="@color/primary_dark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

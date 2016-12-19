@@ -32,19 +32,19 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class BreweriesActivity extends AppCompatActivity {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
-    private String mRecentBrewery;
-
-    //    @Bind(R.id.breweryFindButton) Button mBreweryFindButton;
+public class BreweriesActivity extends AppCompatActivity implements View.OnClickListener {
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
+//    private String mRecentBrewery;
+//    @Bind(R.id.breweryFindButton) Button mBreweryFindButton;
 //    @Bind(R.id.breweryEditText) EditText mBreweryEditText;
 //    @Bind(R.id.breweriesRecyclerView) RecyclerView mBreweriesRecyclerView;
-//    @Bind(R.id.savedBreweriesButton) Button mSavedBreweriesButton;
+    @Bind(R.id.savedBreweriesButton) Button mSavedBreweriesButton;
 
 //    private BreweryListAdapter mAdapter;
 //    private ArrayList<Brewery> mBreweries = new ArrayList<>();
@@ -53,23 +53,23 @@ public class BreweriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breweries2);
-//        ButterKnife.bind(this);
+        ButterKnife.bind(this);
 
-//        Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
-//        mBreweryFindButton.setTypeface(chunkFiveFont);
+        Typeface chunkFiveFont = Typeface.createFromAsset(getAssets(), "fonts/Chunkfive.otf");
+        mSavedBreweriesButton.setTypeface(chunkFiveFont);
 
 //        mBreweryFindButton.setOnClickListener(this);
-//        mSavedBreweriesButton.setOnClickListener(this);
+        mSavedBreweriesButton.setOnClickListener(this);
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mRecentBrewery = mSharedPreferences.getString(Constants.PREFERENCES_BREWERY, null);
 //
 //        if (mRecentBrewery != null) {
 //            getBreweries(mRecentBrewery);
 //        }
-    }
+   }
 
-//    @Override
-//    public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
 //        if(v == mBreweryFindButton) {
 //            String breweryInput = mBreweryEditText.getText().toString();
 //            if(breweryInput.equals("")) {
@@ -78,11 +78,11 @@ public class BreweriesActivity extends AppCompatActivity {
 //                getBreweries(breweryInput);
 //            }
 //        }
-//        if (v == mSavedBreweriesButton) {
-//            Intent intent = new Intent(BreweriesActivity.this, SavedBreweryListActivity.class);
-//            startActivity(intent);
-//        }
-//    }
+        if (v == mSavedBreweriesButton) {
+            Intent intent = new Intent(BreweriesActivity.this, SavedBreweryListActivity.class);
+            startActivity(intent);
+        }
+    }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        MenuInflater inflater = getMenuInflater();

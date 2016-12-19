@@ -62,8 +62,6 @@ public class SavedBreweryListFragment extends Fragment implements OnStartDragLis
                 query, this, getActivity());
 
         mBreweriesRecyclerView.setHasFixedSize(true);
-
-        //In line below, we change 'this' to 'getActivity()' because fragments do not have own context:
         mBreweriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBreweriesRecyclerView.setAdapter(mFirebaseAdapter);
 

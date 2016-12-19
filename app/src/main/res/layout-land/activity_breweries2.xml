@@ -8,6 +8,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saved Breweries"
+        android:id="@+id/savedBreweriesButton"
+        android:layout_gravity="bottom" />
+
     <fragment
         android:id="@+id/fragmentItemsList"
         android:name="com.epicodus.beerguide.ui.BreweryListFragment"
@@ -25,7 +33,5 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="6">
-
     </FrameLayout>
-
 </LinearLayout>

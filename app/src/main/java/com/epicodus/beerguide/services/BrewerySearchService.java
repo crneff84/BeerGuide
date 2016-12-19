@@ -59,9 +59,15 @@ public class BrewerySearchService {
                     String name = breweryJSON.getString("name");
                     String breweryId = breweryJSON.getString("id");
 
+                    String website = "N/A";
 
+                    try {
+                        website = breweryJSON.getString("website");
+                    } catch (JSONException e) {}
 
-                    Brewery brewery = new Brewery(name, breweryId);
+                    Log.d(TAG, website);
+
+                    Brewery brewery = new Brewery(name, breweryId, website);
                     breweries.add(brewery);
                 }
             }

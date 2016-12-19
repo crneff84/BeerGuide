@@ -10,14 +10,16 @@ import org.parceler.Parcel;
 public class Brewery {
     String name;
     String breweryId;
+    String website;
     private String pushId;
     String index;
 
     public Brewery() {}
 
-    public Brewery(String name, String breweryId) {
+    public Brewery(String name, String breweryId, String website) {
         this.name = name;
         this.breweryId = breweryId;
+        this.website = website;
         this.index = "not_specified";
     }
 
@@ -27,6 +29,10 @@ public class Brewery {
 
     public String getBreweryId() {
         return breweryId;
+    }
+
+    public String getWebsite() {
+        return website;
     }
 
     public String getPushId() {

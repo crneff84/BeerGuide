@@ -65,6 +65,7 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
         //Picasso.with(view.getContext()).load(mBrewery.getImageUrl()).into(mImageLabel);
 
         mNameLabel.setText(mBrewery.getName());
+        mWebsiteLabel.setText(mBrewery.getWebsite());
         //mPhoneLabel.setText(mBrewery.getPhone());
         //mAddressLabel.setText(android.text.TextUtils.join(", ", mBrewery.getAddress()));
 

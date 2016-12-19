@@ -32,16 +32,9 @@ public class SavedBreweryListActivity extends AppCompatActivity implements OnSta
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_breweries2);
         ButterKnife.bind(this);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mBreweryReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_BREWERIES)
-                .child(uid);
 
         setUpFirebaseAdapter();
     }

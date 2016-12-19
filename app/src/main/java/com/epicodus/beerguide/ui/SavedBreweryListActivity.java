@@ -4,11 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.epicodus.beerguide.Constants;
 import com.epicodus.beerguide.R;
+import com.epicodus.beerguide.adapters.FirebaseBreweryListAdapter;
 import com.epicodus.beerguide.adapters.FirebaseBreweryViewHolder;
 import com.epicodus.beerguide.models.Brewery;
+import com.epicodus.beerguide.util.OnStartDragListener;
+import com.epicodus.beerguide.util.SimpleItemTouchHelperCallback;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,9 +22,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SavedBreweryListActivity extends AppCompatActivity {
+public class SavedBreweryListActivity extends AppCompatActivity implements OnStartDragListener {
     private DatabaseReference mBreweryReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private FirebaseBreweryListAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
     @Bind(R.id.breweriesRecyclerView) RecyclerView mRecyclerView;
 
@@ -42,24 +47,35 @@ public class SavedBreweryListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Brewery, FirebaseBreweryViewHolder>
-                (Brewery.class, R.layout.brewery_list_item, FirebaseBreweryViewHolder.class,
-                        mBreweryReference) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-            @Override
-            protected void populateViewHolder(FirebaseBreweryViewHolder viewHolder,
-                                              Brewery model, int position) {
-                viewHolder.bindBrewery(model);
-            }
-        };
+        mBreweryReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_BREWERIES)
+                .child(uid);
+
+        mFirebaseAdapter = new FirebaseBreweryListAdapter
+                (Brewery.class, R.layout.brewery_list_item_drag, FirebaseBreweryViewHolder.class,
+                        mBreweryReference, this, this);
+
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mFirebaseAdapter.cleanup();
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
     }
 }

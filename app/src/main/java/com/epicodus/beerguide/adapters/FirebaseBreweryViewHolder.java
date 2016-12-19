@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
+    public ImageView mBreweryImageView;
 
     View mView;
     Context mContext;
@@ -37,14 +39,15 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
     }
 
     public void bindBrewery(Brewery brewery) {
-        ImageView breweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
+        mBreweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
         TextView breweryNameTextView = (TextView) mView.findViewById(R.id.breweryNameTextView);
 
 //        Picasso.with(mContext)
-//                .load(restaurant.getImageUrl())
+//                .load(brewery.getImageUrl())
 //                .resize(MAX_WIDTH, MAX_HEIGHT)
 //                .centerCrop()
-//                .into(restaurantImageView);
+//                .into(mBreweryImageView);
+
         breweryNameTextView.setText(brewery.getName());
     }
 

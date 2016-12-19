@@ -11,15 +11,17 @@ public class Brewery {
     String name;
     String breweryId;
     String website;
+    String imageUrl;
     private String pushId;
     String index;
 
     public Brewery() {}
 
-    public Brewery(String name, String breweryId, String website) {
+    public Brewery(String name, String breweryId, String website, String imageUrl) {
         this.name = name;
         this.breweryId = breweryId;
         this.website = website;
+        this.imageUrl = imageUrl;
         this.index = "not_specified";
     }
 
@@ -33,6 +35,10 @@ public class Brewery {
 
     public String getWebsite() {
         return website;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getPushId() {

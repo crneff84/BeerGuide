@@ -53,21 +53,26 @@ public class BrewerySearchService {
             if(response.isSuccessful()) {
                 JSONObject brewerydbJSON = new JSONObject(jsonData);
                 JSONArray breweriesJSON = brewerydbJSON.getJSONArray("data");
+
                 for(int i = 0; i < breweriesJSON.length(); i++) {
                     JSONObject breweryJSON = breweriesJSON.getJSONObject(i);
 
                     String name = breweryJSON.getString("name");
                     String breweryId = breweryJSON.getString("id");
-
                     String website = "N/A";
+                    String imageUrl = "N/A";
 
                     try {
                         website = breweryJSON.getString("website");
                     } catch (JSONException e) {}
 
-                    Log.d(TAG, website);
+                    try {
+                        imageUrl = breweryJSON.getString("squareMedium");
+                    } catch (JSONException e) {}
 
-                    Brewery brewery = new Brewery(name, breweryId, website);
+                    Log.d(TAG, imageUrl);
+
+                    Brewery brewery = new Brewery(name, breweryId, website, imageUrl);
                     breweries.add(brewery);
                 }
             }

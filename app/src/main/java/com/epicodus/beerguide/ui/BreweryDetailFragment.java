@@ -1,6 +1,8 @@
 package com.epicodus.beerguide.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -70,6 +72,7 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
         //mAddressLabel.setText(android.text.TextUtils.join(", ", mBrewery.getAddress()));
 
         mSaveBreweryButton.setOnClickListener(this);
+        mWebsiteLabel.setOnClickListener(this);
 
         return view;
     }
@@ -91,6 +94,14 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
             pushRef.setValue(mBrewery);
 
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
+        }
+        if (v == mWebsiteLabel) {
+            if (mBrewery.getWebsite().equals("N/A")) {
+            } else {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(mBrewery.getWebsite()));
+                startActivity(webIntent);
+            }
         }
     }
 }

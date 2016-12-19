@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -64,12 +65,16 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
         View view = inflater.inflate(R.layout.fragment_brewery_detail, container, false);
         ButterKnife.bind(this, view);
 
-        //Picasso.with(view.getContext()).load(mBrewery.getImageUrl()).into(mImageLabel);
+        if(mBrewery.getImageUrl().equals("N/A")) {
+
+        } else {
+            Picasso.with(view.getContext()).load(mBrewery.getImageUrl()).into(mImageLabel);
+
+        }
 
         mNameLabel.setText(mBrewery.getName());
         mWebsiteLabel.setText(mBrewery.getWebsite());
-        //mPhoneLabel.setText(mBrewery.getPhone());
-        //mAddressLabel.setText(android.text.TextUtils.join(", ", mBrewery.getAddress()));
+
 
         mSaveBreweryButton.setOnClickListener(this);
         mWebsiteLabel.setOnClickListener(this);

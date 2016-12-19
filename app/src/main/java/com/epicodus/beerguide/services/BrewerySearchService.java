@@ -67,7 +67,8 @@ public class BrewerySearchService {
                     } catch (JSONException e) {}
 
                     try {
-                        imageUrl = breweryJSON.getString("squareMedium");
+                        JSONObject imageObject = breweryJSON.getJSONObject("images");
+                        imageUrl = imageObject.getString("squareMedium");
                     } catch (JSONException e) {}
 
                     Log.d(TAG, imageUrl);

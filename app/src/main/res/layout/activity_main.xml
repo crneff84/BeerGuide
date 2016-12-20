@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.beerguide.MainActivity"
+    tools:context="com.epicodus.beerguide.ui.MainActivity"
     android:background="#000000">
 
     <ImageView
@@ -17,6 +17,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:background="@color/icons"
         android:id="@+id/locationEditText"
         android:layout_marginBottom="15dp"
@@ -33,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Locate Breweries"
+        android:visibility="gone"
         android:id="@+id/findBreweryButton"
         android:textColor="@color/icons"
         android:background="@color/primary"
@@ -46,19 +48,23 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="Search Breweries"
         android:id="@+id/breweriesButton"
         android:textColor="@color/icons"
         android:background="@color/primary"
         android:padding="15dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search Beers"
+        android:visibility="gone"
         android:id="@+id/beerButton"
         android:background="@color/primary"
         android:textColor="@color/icons"

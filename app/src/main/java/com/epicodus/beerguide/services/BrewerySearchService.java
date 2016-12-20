@@ -52,28 +52,27 @@ public class BrewerySearchService {
 
             if(response.isSuccessful()) {
                 JSONObject brewerydbJSON = new JSONObject(jsonData);
-                JSONArray breweriesJSON = brewerydbJSON.getJSONArray("data");
+                JSONArray breweriesJSON = brewerydbJSON.optJSONArray("data");
 
-                for(int i = 0; i < breweriesJSON.length(); i++) {
-                    JSONObject breweryJSON = breweriesJSON.getJSONObject(i);
+                if(breweriesJSON!=null) {
+                    for(int i = 0; i < breweriesJSON.length(); i++) {
+                        JSONObject breweryJSON = breweriesJSON.getJSONObject(i);
 
-                    String name = breweryJSON.getString("name");
-                    String breweryId = breweryJSON.getString("id");
-                    String website = "N/A";
-                    String imageUrl = "N/A";
+                        String name = breweryJSON.getString("name");
+                        String breweryId = breweryJSON.getString("id");
+                        String website = breweryJSON.optString("website");
+                        String imageUrl = "N/A";
 
-                    try {
-                        website = breweryJSON.getString("website");
-                    } catch (JSONException e) {}
+                        JSONObject imageObject = breweryJSON.optJSONObject("images");
+                        if (imageObject == null) {
+                        } else {
+                            imageUrl = imageObject.optString("squareMedium");
+                        }
 
-                    try {
-                        JSONObject imageObject = breweryJSON.getJSONObject("images");
-                        imageUrl = imageObject.getString("squareMedium");
-                    } catch (JSONException e) {}
-
-                    Brewery brewery = new Brewery(name, breweryId, website, imageUrl);
-                    breweries.add(brewery);
-                }
+                        Brewery brewery = new Brewery(name, breweryId, website, imageUrl);
+                        breweries.add(brewery);
+                    }
+                } else {}
             }
         } catch (IOException e) {
             e.printStackTrace();

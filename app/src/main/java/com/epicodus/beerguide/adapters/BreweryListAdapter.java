@@ -87,16 +87,6 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
             }
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            int itemPosition = getLayoutPosition();
-//
-//            Intent intent = new Intent(mContext, BreweryDetailActivity.class);
-//            intent.putExtra("position", itemPosition + "");
-//            intent.putExtra("breweries", Parcels.wrap(mBreweries));
-//            mContext.startActivity(intent);
-//        }
-
         private void createDetailFragment(int position) {
             BreweryDetailFragment detailFragment = BreweryDetailFragment.newInstance(mBreweries, position);
             FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();

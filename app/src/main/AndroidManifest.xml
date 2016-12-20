@@ -18,17 +18,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.beerguide.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.BeersActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.ui.MainActivity" />
-        </activity>
-        <activity android:name=".ui.BreweryLocatorActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.beerguide.ui.MainActivity" />
-        </activity>
-        <activity android:name=".ui.BeerDetailActivity" />
         <activity android:name=".ui.BreweryDetailActivity" />
         <activity android:name=".ui.SavedBreweryListActivity" />
         <activity android:name=".ui.CreateAccountActivity" />

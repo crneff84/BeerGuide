@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     private int mPosition;
 
     public static BreweryDetailFragment newInstance(ArrayList<Brewery> breweries, Integer position) {
+
         BreweryDetailFragment breweryDetailFragment = new BreweryDetailFragment();
         Bundle args = new Bundle();
 

@@ -11,7 +11,7 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="100dp"
-            android:id="@+id/restaurantImageView"
+            android:id="@+id/breweryImageView"
             android:src="@drawable/beerplaceholder"
             android:scaleType="centerCrop"/>
 

@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -42,6 +43,7 @@ public class FirebaseBreweryListAdapter extends FirebaseRecyclerAdapter<Brewery,
     public FirebaseBreweryListAdapter(Class<Brewery> modelClass, int modelLayout,
                                          Class<FirebaseBreweryViewHolder> viewHolderClass,
                                          Query ref, OnStartDragListener onStartDragListener, Context context) {
+
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
@@ -87,6 +89,7 @@ public class FirebaseBreweryListAdapter extends FirebaseRecyclerAdapter<Brewery,
         }
 
         viewHolder.mBreweryImageView.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
@@ -94,6 +97,7 @@ public class FirebaseBreweryListAdapter extends FirebaseRecyclerAdapter<Brewery,
                 }
                 return false;
             }
+
         });
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +121,7 @@ public class FirebaseBreweryListAdapter extends FirebaseRecyclerAdapter<Brewery,
         FragmentTransaction ft = ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.breweryDetailContainer, detailFragment);
         ft.commit();
+        Log.d("hey", "in N/A area");
     }
 
     @Override

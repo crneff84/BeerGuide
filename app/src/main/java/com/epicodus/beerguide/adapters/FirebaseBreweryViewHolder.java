@@ -29,10 +29,10 @@ import java.util.ArrayList;
 public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
-    public ImageView mBreweryImageView;
 
     View mView;
     Context mContext;
+    public ImageView mBreweryImageView;
 
     public FirebaseBreweryViewHolder(View itemView) {
         super(itemView);
@@ -44,11 +44,15 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
         mBreweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
         TextView breweryNameTextView = (TextView) mView.findViewById(R.id.breweryNameTextView);
 
-//        Picasso.with(mContext)
-//                .load(brewery.getImageUrl())
-//                .resize(MAX_WIDTH, MAX_HEIGHT)
-//                .centerCrop()
-//                .into(mBreweryImageView);
+        if(brewery.getImageUrl().equals("N/A")) {
+
+        } else {
+            Picasso.with(mContext)
+                    .load(brewery.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mBreweryImageView);
+        }
 
         breweryNameTextView.setText(brewery.getName());
     }

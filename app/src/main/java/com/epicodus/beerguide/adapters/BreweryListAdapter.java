@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.beerguide.Constants;
@@ -16,6 +17,7 @@ import com.epicodus.beerguide.models.Brewery;
 import com.epicodus.beerguide.R;
 import com.epicodus.beerguide.ui.BreweryDetailActivity;
 import com.epicodus.beerguide.ui.BreweryDetailFragment;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -56,6 +58,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
 
     public class BreweryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.breweryNameTextView) TextView mBreweryNameTextView;
+        @Bind(R.id.breweryImageView) ImageView mBreweryImageView;
 
         private Context mContext;
         private int mOrientation;
@@ -76,6 +79,12 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
 
         public void bindBrewery(Brewery brewery) {
             mBreweryNameTextView.setText(brewery.getName());
+
+            if(brewery.getImageUrl().equals("N/A")) {
+
+            } else {
+                Picasso.with(mContext).load(brewery.getImageUrl()).into(mBreweryImageView);
+            }
         }
 
 //        @Override

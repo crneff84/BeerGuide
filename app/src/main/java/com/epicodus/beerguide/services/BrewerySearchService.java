@@ -71,8 +71,6 @@ public class BrewerySearchService {
                         imageUrl = imageObject.getString("squareMedium");
                     } catch (JSONException e) {}
 
-                    Log.d(TAG, imageUrl);
-
                     Brewery brewery = new Brewery(name, breweryId, website, imageUrl);
                     breweries.add(brewery);
                 }

@@ -78,7 +78,7 @@
                 android:id="@+id/saveBreweryButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/accent"
-                android:textColor="@color/primary_text"
+                android:textColor="@color/icons"
                 android:textSize="15sp" />
         </RelativeLayout>
     </LinearLayout>
